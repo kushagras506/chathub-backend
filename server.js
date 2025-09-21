@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const mysql = require('mysql2/promise');
 const { OAuth2Client } = require('google-auth-library');
 const fetch = require('node-fetch');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const app = express();
 const server = http.createServer(app);
@@ -33,7 +33,7 @@ const ipCountryCache = new Map();
 async function initDb() {
   try {
     dbPool = await mysql.createPool({
-      host: 'sdb-90.hosting.stackcp.net',
+      host: 'mysql.gb.stackcp.com',
       user: 'chathub-353131392d6e',
       password: '8b6zn2tfx3',
       database: 'chathub-353131392d6e',
