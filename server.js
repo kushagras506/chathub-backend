@@ -32,13 +32,16 @@ const ipCountryCache = new Map();
 // --- Database Connection and Config Setup ---
 async function initDb() {
   try {
+    // IMPORTANT: These are PostgreSQL credentials. This will NOT work with the 'mysql2' library.
+    // You MUST use credentials from a MySQL database provider like PlanetScale (see deployment guide).
     dbPool = await mysql.createPool({
-      host: 'sdb-90.hosting.stackcp.net',
-      user: 'chathub-353131392d6e',
-      password: '3m8$V%ci+=/V',
-      database: 'chathub-353131392d6e',
+      host: 'dpg-d384dv3uibrs739hhsvg-a',
+      port: 5432,
+      user: 'chathub_db_user',
+      password: 'cUZO9KLqZUHTZAaB5Wk0mp1QydvxMngZ',
+      database: 'chathub_db',
       waitForConnections: true,
-      connectionLimit: 20,
+      connectionLimit: 10,
       queueLimit: 0,
       enableKeepAlive: true,
       keepAliveInitialDelay: 10000
