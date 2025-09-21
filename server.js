@@ -33,7 +33,7 @@ const ipCountryCache = new Map();
 async function initDb() {
   try {
     dbPool = await mysql.createPool({
-      host: 'mysql.gb.stackcp.com',
+      host: 'mysql.gb.stackcp.com:40315',
       user: 'chathub-353131392d6e',
       password: '8b6zn2tfx3',
       database: 'chathub-353131392d6e',
