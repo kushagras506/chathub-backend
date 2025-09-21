@@ -34,9 +34,9 @@ async function initDb() {
   try {
     dbPool = await mysql.createPool({
       host: 'mysql.gb.stackcp.com',
-      port: 40315,
+      port: 39337,
       user: 'chathub-353131392d6e',
-      password: '8b6zn2tfx3',
+      password: '3m8$V%ci+=/V',
       database: 'chathub-353131392d6e',
       waitForConnections: true,
       connectionLimit: 10,
@@ -931,11 +931,10 @@ const PORT = process.env.PORT || 5000;
 // --- Server Startup ---
 async function startServer() {
   	await initDb();
-  	await loadConfigAndSeed();
+    await loadConfigAndSeed();
   	server.listen(PORT, () => {
   		console.log(`Server is running on port ${PORT}`);
   	});
 }
 
 startServer();
-
