@@ -40,7 +40,9 @@ async function initDb() {
       database: 'chathub-353131392d6e',
       waitForConnections: true,
       connectionLimit: 10,
-      queueLimit: 0
+      queueLimit: 0,
+      enableKeepAlive: true,
+      keepAliveInitialDelay: 10000
     });
 
     // Create a settings table for API keys and other config
@@ -382,8 +384,8 @@ async function findPartnerAndMatch(socket, metadata) {
             };
             if (isAdmin(socket1)) {
                 user1Payload.partnerAdminData = {
-                    id: socket2.userId,
-                    ip: partner.ipAddress
+_id: socket2.userId,
+_ip: partner.ipAddress
                 };
             }
 
@@ -394,8 +396,8 @@ async function findPartnerAndMatch(socket, metadata) {
             };
             if (isAdmin(socket2)) {
                 user2Payload.partnerAdminData = {
-                    id: socket1.userId,
-                    ip: currentUser.ipAddress
+_id: socket1.userId,
+_ip: currentUser.ipAddress
                 };
             }
 
@@ -936,3 +938,4 @@ async function startServer() {
 }
 
 startServer();
+
